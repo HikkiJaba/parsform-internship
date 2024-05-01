@@ -1,0 +1,33 @@
+
+.custom-button-second {
+    width: 96px;
+    height: 44px;
+    padding: 10px, 20px, 10px, 20px;
+    font-size: 16px;
+    border: 2px solid rgba(110, 65, 226, 1);
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(110, 65, 226, 1);
+    transition: 0.2s;
+  }
+
+  .custom-button-second:hover {
+    background-color: rgba(110, 65, 226, 0.04);
+    box-shadow: 0 4 56 0 rgba(51, 51, 51, 0.16);
+  }
+
+  .custom-button-second:active {
+    background-color: rgba(110, 65, 226, 0.16);
+    box-shadow: 0 4 24 0 rgba(51, 51, 51, 0.24);
+    scale: 85%;
+  }
+
+  .custom-button-second:focus {
+    background-color: rgba(255, 255, 255, 1);
+    border: 2px solid rgba(17, 17, 17, 0.48);
+  }
+
+  .custom-button-second:disabled {
+    background-color: rgba(227, 218, 249, 1);;
+    border: 2px solid rgba(110, 65, 226, 1);
+  }
