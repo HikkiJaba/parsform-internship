@@ -1,44 +1,20 @@
-import React, { useState } from "react";
 import "./InputFile.css";
 
 const FileUpload = () => {
-  const [selectedFiles, setSelectedFiles] = useState([]);
-
-  const handleFileChange = (e) => {
-    const files = Array.from(e.target.files);
-    setSelectedFiles(files);
-  };
-
   return (
-    <div className="file-upload-container">
-      <label htmlFor="file-upload" className="file-upload-label">
-        Выберите файл:
-      </label>
-      <input
-        type="file"
-        id="file-upload"
-        className="file-upload-input"
-        onChange={handleFileChange}
-        multiple
-        accept=".json"
-      />
-      <div className="selected-files">
-        {selectedFiles.map((file, index) => (
-          <div key={index} className="file-item">
-            <span>{file.name}</span>
-            <button
-              onClick={() => {
-                const updatedFiles = [...selectedFiles];
-                updatedFiles.splice(index, 1);
-                setSelectedFiles(updatedFiles);
-              }}
-            >
-              Удалить
-            </button>
+    <form>
+      <img />
+      <form id="upload-container">
+          <div>
+               <input className="visually-hidden" id="file-input" type="file" name="file"/>
+               <label for="file-input" className="file-label">
+                <h2><span>Select a file</span> or drag in form</h2>
+                <div>JSON file up to 10MB in size are available for download</div>
+               </label>
           </div>
-        ))}
-      </div>
-    </div>
+     </form>
+
+    </form>
   );
 };
 
