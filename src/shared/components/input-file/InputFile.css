@@ -1,8 +1,7 @@
 .file-label {
     box-shadow: 0px 4px 16px 0px rgba(51, 51, 51, 0.08);
-    background-color: rgb(175, 108, 20);
     cursor: pointer;
-    margin-left: 20px;
+    display: block;
 }
 
 #upload-container{
@@ -10,12 +9,17 @@
     width: 675px;
     cursor: pointer;
     font-size: 16px;
-    padding: 20px 0 20px 20px;
+    padding: 0;
+    border-radius: 5px;
+}
+
+#upload-container:hover {
+    box-shadow: 0px 4px 16px 15px rgba(51, 51, 51, 0.1);
 }
 
 #upload-container h2{
-    margin-top: 0;
-    margin-bottom: 8px;
+    margin: 0;
+    padding: 20px 0 8px 20px;
 }
 
 .file-label h2 span{
@@ -23,6 +27,7 @@
 }
 .file-label div {
     color: rgba(17, 17, 17, 0.48);
+    padding: 0px 0px 20px 20px;
 }
 
 .visually-hidden {
@@ -37,3 +42,33 @@
     clip: rect(0 0 0 0);
     overflow: hidden;
   }
+
+
+  .drag-over {
+    color: rgba(110, 65, 226, 1) !important;
+    background-color: rgba(110, 65, 226, 1) !important;
+  }
+
+  .drag-over .file-label div {
+    color: rgba(110, 65, 226, 1) !important;
+    padding: 0 0 5px 20px;
+}
+
+
+.fileicon-div {
+    display: none;
+    width: 100%;
+    text-align: center;
+}
+
+.fileicon {
+    z-index: 1;
+}
+
+.drag-over .fileicon-div {
+    display: block;
+}
+
+.drag-over h2{
+    padding: 10px 0 0 20px !important;
+}
