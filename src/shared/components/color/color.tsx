@@ -1,16 +1,23 @@
 import React, { useState } from "react";
-import arroy from "../../icons/arrow-down.svg";
+// @ts-ignore
+import arrow from "../../icons/arrow-down.svg";
 import "./color.css";
 
-const ButtonSecond = ({ options }) => {
-    const [menuOpen, setMenuOpen] = useState(false);
-    const [selectedColor, setSelectedColor] = useState(null);
+interface ButtonSecondProps {
+    options: string[];
+}
+
+type BackgroundColor = string | undefined;
+
+const ButtonSecond: React.FC<ButtonSecondProps> = ({ options }) => {
+    const [menuOpen, setMenuOpen] = useState<boolean>(false);
+    const [selectedColor, setSelectedColor] = useState<BackgroundColor>(undefined);
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
 
-    const selectColor = (color) => {
+    const selectColor = (color: string) => {
         setSelectedColor(color);
         setMenuOpen(false);
     };
@@ -20,7 +27,7 @@ const ButtonSecond = ({ options }) => {
             <button className="button-color" onClick={toggleMenu}>
                 <div className="div-color">
                     <div className="square-color" style={{ backgroundColor: selectedColor }}></div>
-                    <img src={arroy} alt="Arrow" />
+                    <img src={arrow} alt="Arrow" />
                 </div>
             </button>
             {menuOpen && options && options.length > 0 && (
