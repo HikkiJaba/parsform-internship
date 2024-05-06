@@ -1,17 +1,16 @@
 import React, { useState } from "react";
+import "./color.css";
 // @ts-ignore
 import arrow from "../../icons/arrow-down.svg";
-import "./color.css";
 
-interface ButtonSecondProps {
+interface ColorProps {
     options: string[];
+    onSelect: (color: string | null) => void;
 }
 
-type BackgroundColor = string | undefined;
-
-const ButtonSecond: React.FC<ButtonSecondProps> = ({ options }) => {
+const Color: React.FC<ColorProps> = ({ options, onSelect }) => {
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
-    const [selectedColor, setSelectedColor] = useState<BackgroundColor>(undefined);
+    const [selectedColor, setSelectedColor] = useState<string>("");
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -19,12 +18,18 @@ const ButtonSecond: React.FC<ButtonSecondProps> = ({ options }) => {
 
     const selectColor = (color: string) => {
         setSelectedColor(color);
+        onSelect(color);
         setMenuOpen(false);
+    };
+
+    const clearSelection = () => {
+        setSelectedColor("");
+        onSelect(null);
     };
 
     return (
         <div className="color-picker">
-            <button className="button-color" onClick={toggleMenu}>
+            <button type="button" className="button-color" onClick={toggleMenu}>
                 <div className="div-color">
                     <div className="square-color" style={{ backgroundColor: selectedColor }}></div>
                     <img src={arrow} alt="Arrow" />
@@ -35,7 +40,7 @@ const ButtonSecond: React.FC<ButtonSecondProps> = ({ options }) => {
                     {options.map((color, index) => (
                         <div
                             key={index}
-                            className="color-option"
+                            className={`color-option ${selectedColor === color ? "selected" : ""}`}
                             style={{ backgroundColor: color }}
                             onClick={() => selectColor(color)}
                         ></div>
@@ -46,4 +51,4 @@ const ButtonSecond: React.FC<ButtonSecondProps> = ({ options }) => {
     );
 }
 
-export default ButtonSecond;
+export default Color;

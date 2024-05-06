@@ -27,3 +27,26 @@
     box-shadow: 0 4 56 0 rgba(51, 51, 51, 0.16);
   }
   
+
+  .error-input-container {
+    align-items: start;
+    color: red;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .error-input-container span {
+    margin-top: -15px;
+    margin-bottom:10px;
+  }
+
+  .custom-input.error-border {
+    background-color: rgba(249, 227, 227, 1);
+    box-shadow: 0 4 56 0 rgba(255, 195, 195, 0.24);
+  }
+
+  .error-input {
+      color: red;
+      font-size: 12px;
+      margin-top: 4px;
+  }

@@ -1,7 +1,7 @@
 
 .custom-button-first {
-    width: 96px;
-    height: 44px;
+    min-width: 96px;
+    min-height: 44px;
     padding: 10px, 20px, 10px, 20px;
     font-size: 16px;
     background-color: rgba(110, 65, 226, 1);
@@ -29,4 +29,5 @@
 
   .custom-button-first:disabled {
     background-color: rgba(227, 218, 249, 1);
+    border: 0;
   }

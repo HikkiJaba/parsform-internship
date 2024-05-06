@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// @ts-ignore
 import fileicon from '../../icons/file.svg';
 import "./InputFile.css";
 
@@ -47,8 +48,8 @@ const FileUpload = ({ onFileData }) => {
     const reader = new FileReader();
     reader.onload = (event) => {
       try {
+        // @ts-ignore
         const jsonData = JSON.parse(event.target.result);
-        // Вызываем функцию обратного вызова, чтобы передать данные файла в родительский компонент
         onFileData(jsonData);
       } catch (error) {
         console.error("Error parsing JSON:", error);
@@ -78,13 +79,14 @@ const FileUpload = ({ onFileData }) => {
           />
           <label htmlFor="file-input" className="file-label">     
             <h2>
-              {fileName ? `${fileName}` : "Select a file or drag it in"}
+              {fileName ? `${fileName}` : <span>Select a file</span>} or drag it in
             </h2>
+
             <div className="fileicon-div">
               <img src={fileicon} className="fileicon" alt="File Icon" />
             </div>
             <div>
-              {fileType === "application/json" ? "Thank's" : "JSON file up to 10 MB in size are available for download"}
+              {fileType === "application/json" ? "All good" : "JSON file up to 10 MB in size are available for download"}
             </div>
           </label>
         </div>
